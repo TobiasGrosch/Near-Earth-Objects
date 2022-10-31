@@ -71,6 +71,7 @@ class AttributeFilter:
         raise UnsupportedCriterionError
 
     def __repr__(self):
+        """Return `repr(self)`, a computer-readable string representation of this object."""
         return f"{self.__class__.__name__}(op=operator.{self.op.__name__}, value={self.value})"
 
 
@@ -79,7 +80,7 @@ class DistanceFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
-        """Get the distance attribute from CloseApproach
+        """Get the distance attribute from CloseApproach.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
         :return: The distance value, comparable to to `self.value` via `self.op`.
@@ -92,7 +93,7 @@ class VelocityFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
-        """Get the velocity attribute from CloseApproach
+        """Get the velocity attribute from CloseApproach.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
         :return: The velocity value, comparable to to `self.value` via `self.op`.
@@ -105,7 +106,7 @@ class DiameterFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
-        """Get the diameter attribute from CloseApproach
+        """Get the diameter attribute from CloseApproach.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
         :return: The diameter value, comparable to to `self.value` via `self.op`.
@@ -118,7 +119,7 @@ class HazardousFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
-        """Get the hazardous attribute from CloseApproach
+        """Get the hazardous attribute from CloseApproach.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
         :return: The hazard value, comparable to to `self.value` via `self.op`.
@@ -131,7 +132,7 @@ class DateFilter(AttributeFilter):
 
     @classmethod
     def get(cls, approach):
-        """Get the date attribute from CloseApproach
+        """Get the date attribute from CloseApproach.
 
         :param approach: A `CloseApproach` on which to evaluate this filter.
         :return: The date value, comparable to to `self.value` via `self.op`.
