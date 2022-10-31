@@ -42,8 +42,8 @@ class NearEarthObject:
         :param hazardous: A boolean wether or nor this NearEarthObject is potentially hazardous.
         """
         self.designation = str(designation)
-        self.name = str(name) if name is not "" else None
-        self.diameter = float(diameter) if diameter is not "" else float('nan')
+        self.name = str(name) if name != "" else None
+        self.diameter = float(diameter) if diameter != "" else float('nan')
         self.hazardous = True if hazardous == "Y" else False
 
         # Create an empty initial collection of linked approaches.
