@@ -39,7 +39,7 @@ class NearEarthObject:
         :param designation: A string containing the primary designation for this NearEarthObject.
         :param name: A string containing the IAU name for this NearEarthObject.
         :param diameter: A float for the diameter in kilometer of this NearEarthObject.
-        :param hazardous: A boolean weather ot nor this NearEarthObject is potentially hazardous.
+        :param hazardous: A boolean wether or nor this NearEarthObject is potentially hazardous.
         """
         self.designation = str(designation)
         self.name = str(name) if name is not "" else None

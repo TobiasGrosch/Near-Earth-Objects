@@ -73,28 +73,58 @@ class AttributeFilter:
         return f"{self.__class__.__name__}(op=operator.{self.op.__name__}, value={self.value})"
 
 class DistanceFilter(AttributeFilter):
+    """Subclass of AttributeFilter to filter the distance of CloseApproaches."""
     @classmethod
     def get(cls, approach):
+        """Get the distance attribute from CloseApproach
+        
+        :param approach: A `CloseApproach` on which to evaluate this filter.
+        :return: The distance value, comparable to to `self.value` via `self.op`.
+        """
         return approach.distance
 
 class VelocityFilter(AttributeFilter):
+    """Subclass of AttributeFilter to filter the velocity of CloseApproaches NEOs."""
     @classmethod
     def get(cls, approach):
+        """Get the velocity attribute from CloseApproach
+        
+        :param approach: A `CloseApproach` on which to evaluate this filter.
+        :return: The velocity value, comparable to to `self.value` via `self.op`.
+        """
         return approach.velocity
 
 class DiameterFilter(AttributeFilter):
+    """Subclass of AttributeFilter to filter the diameter of CloseApproache NEOs."""
     @classmethod
     def get (cls, approach):
+        """Get the diameter attribute from CloseApproach
+        
+        :param approach: A `CloseApproach` on which to evaluate this filter.
+        :return: The diameter value, comparable to to `self.value` via `self.op`.
+        """
         return approach.neo.diameter
 
 class HazardousFilter(AttributeFilter):
+    """Subclass of AttributeFilter to filter the hazard of CloseApproaches."""
     @classmethod
     def get(cls, approach):
+        """Get the hazardous attribute from CloseApproach
+        
+        :param approach: A `CloseApproach` on which to evaluate this filter.
+        :return: The hazard value, comparable to to `self.value` via `self.op`.
+        """
         return approach.neo.hazardous
 
 class DateFilter(AttributeFilter):
+    """Subclass of AttributeFilter to filter the date of CloseApproaches."""
     @classmethod
     def get(cls, approach):
+        """Get the date attribute from CloseApproach
+        
+        :param approach: A `CloseApproach` on which to evaluate this filter.
+        :return: The date value, comparable to to `self.value` via `self.op`.
+        """
         return approach.time.date()
 
 
@@ -134,7 +164,6 @@ def create_filters(
     :param hazardous: Whether the NEO of a matching `CloseApproach` is potentially hazardous.
     :return: A collection of filters for use with `query`.
     """
-    # TODO: Decide how you will represent your filters.
     filter_list = []
     if distance_min is not None:
         filter_list.append(DistanceFilter(operator.ge, float(distance_min)))
@@ -169,7 +198,6 @@ def limit(iterator, n=None):
     :param n: The maximum number of values to produce.
     :yield: The first (at most) `n` values from the iterator.
     """
-    # TODO: Produce at most `n` values from the given iterator.
     if n == 0 or n == None:
         return iterator
     else:
