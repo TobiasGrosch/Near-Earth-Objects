@@ -26,7 +26,7 @@ def load_neos(neo_csv_path):
     """
     with open(neo_csv_path, "r") as infile:
         reader = csv.reader(infile)
-        next(reader) # skip the header line
+        next(reader)  # skip the header line
         neo_list = []
         for row in reader:
             neo_list.append(NearEarthObject(row[3], row[4], row[15], row[7]))
