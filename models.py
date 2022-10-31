@@ -33,7 +33,7 @@ class NearEarthObject:
     `NEODatabase` constructor.
     """
 
-    def __init__(self, designation, name=None, diameter=float('nan'), hazardous=False):
+    def __init__(self, designation, name, diameter, hazardous):
         """Create a new `NearEarthObject`.
 
         :param designation: A string containing the primary designation for this NearEarthObject.
@@ -42,7 +42,7 @@ class NearEarthObject:
         :param hazardous: A boolean weather ot nor this NearEarthObject is potentially hazardous.
         """
         self.designation = str(designation)
-        self.name = name
+        self.name = str(name) if name is not "" else None
         self.diameter = float(diameter) if diameter is not "" else float('nan')
         self.hazardous = True if hazardous == "Y" else False
 
